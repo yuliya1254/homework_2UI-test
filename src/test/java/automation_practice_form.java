@@ -15,6 +15,7 @@ public class automation_practice_form {
             Configuration.browserSize = "1920x1080";
 
 
+
         }
 
         @Test
@@ -23,6 +24,7 @@ public class automation_practice_form {
             $("#firstName").setValue("Ivan");
             $("#lastName").setValue("Ivanov");
             $("#userEmail").setValue("Ivanov@gmail.ru");
+            executeJavaScript("document.getElementById('submit').click()");
             $(new ByText("Male")).click();
             $("#userNumber").setValue("8988888888");
             $("#dateOfBirthInput").click();
@@ -37,11 +39,13 @@ public class automation_practice_form {
             $("#react-select-3-input").setValue("NCR").pressEnter();
             $("#city").click();
             $("#react-select-4-input").setValue("Delhi").pressEnter();
+            executeJavaScript("$('#fixedban').remove()");
+            executeJavaScript("$('footer').remove()");
             $("#submit").click();
 
             $(".table-responsive").shouldHave(
                     text("Ivan Ivanov"),
-                    text("cIvanov@gmail.ru"),
+                    text("Ivanov@gmail.ru"),
                     text("Male"),
                     text("8988888888"),
                     text("19 June,1994"),
