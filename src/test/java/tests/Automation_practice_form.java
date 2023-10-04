@@ -1,36 +1,33 @@
+package tests;
+
 import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+
+
 public class Automation_practice_form {
-        @BeforeAll
-        static void beforeAll() {
-            Configuration.baseUrl = "https://demoqa.com";
-            Configuration.pageLoadStrategy = "eager";
-            Configuration.holdBrowserOpen = false;
-            Configuration.browserSize = "1920x1080";
 
-
-
-
-        }
+    RegistrationPage registrationPage = new RegistrationPage();
 
         @Test
         void fillFormTest() {
-            open("/automation-practice-form");
 
-            executeJavaScript("$('#fixedban').remove()");
-            executeJavaScript("$('footer').remove()");
+           registrationPage.beforeAllCase ()
+                            .openPage()
+                            .setFirstNameInput("Ivan")
+                            .setLastNameInput("Ivanov")
+                            .setUserEmailInput("Ivanov@gmail.ru")
+                            .setGenderWrapperInput("Male")
+                            .setUserNumberInput("8988888888")
+                            .setDateOfBirt("19","June", "1994" );
 
-            $("#firstName").setValue("Ivan");
-            $("#lastName").setValue("Ivanov");
-            $("#userEmail").setValue("Ivanov@gmail.ru");
-            $("#genterWrapper").$(byText("Male")).click();
-            $("#userNumber").setValue("8988888888");
+
             $("#dateOfBirthInput").click();
             $(".react-datepicker__month-dropdown-container").$(byText("June")).click();
             $(".react-datepicker__year-select").selectOption("1994");
