@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.BeforeAllComponent;
 import pages.components.CalendarComponent;
+import pages.components.CheckResultComponent;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
@@ -13,6 +14,8 @@ public class RegistrationPage {
 
     CalendarComponent calendar = new CalendarComponent();
     BeforeAllComponent beforeAll = new BeforeAllComponent();
+
+    CheckResultComponent checkResultComponent = new CheckResultComponent();
 
     //SelenideElement
     SelenideElement
@@ -30,7 +33,6 @@ public class RegistrationPage {
             stateCity = $("#stateCity-wrapper"),
             city = $("#city"),
             submit = $("#submit"),
-            formResult = $(".table-responsive"),
             modalForm = $(".modal-dialog"),
             modalFormTitle = $("#example-modal-sizes-title-lg");
 
@@ -134,7 +136,7 @@ public class RegistrationPage {
 
 
     public RegistrationPage checkResult(String key, String value) {
-        formResult.$(byText(key)).parent().shouldHave(text(value));
+        checkResultComponent.checkResult(key, value);
         return this;
     }
 

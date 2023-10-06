@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.BeforeAllComponent;
+import pages.components.CheckResultComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class TextBoxPage {
 
     BeforeAllComponent beforeAll = new BeforeAllComponent();
+    CheckResultComponent checkResultComponent = new CheckResultComponent();
 
 
     //SelenideElement
@@ -19,8 +21,8 @@ public class TextBoxPage {
             emailInput = $("#userEmail"),
             currentAddressInput = $("#currentAddress"),
             permanentAddressInput = $("#permanentAddress"),
-            buttonSubmit = $("#submit"),
-            resultTable = $("#output");
+            buttonSubmit = $("#submit");
+
 
 
     //Actions
@@ -61,7 +63,7 @@ public class TextBoxPage {
     }
 
     public TextBoxPage checkResult(String key, String value) {
-        resultTable.$(byText(key)).parent().shouldHave(text(value));
+        checkResultComponent.checkOutput(key,value);
         return this;
     }
 
