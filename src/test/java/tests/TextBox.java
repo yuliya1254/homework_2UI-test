@@ -6,6 +6,7 @@ import pages.TextBoxPage;
 public class TextBox {
 
     TextBoxPage textBoxPage = new TextBoxPage();
+
     @Test
     void fillFormTextBox() {
         textBoxPage.beforeAllCase()
@@ -16,11 +17,10 @@ public class TextBox {
                 .setPermanentAddressInput("Los Angeles, Big street, house 4")
                 .clickButtonSubmit()
 
-                .checkResult("Name:","Ivan Ivanov" )
-                .checkResult("Email:","abc@abc.com" )
-                .checkResult("Current Address :","Los Angeles, Big street, house 4" )
-                .checkResult("Permananet Address :","Los Angeles, Big street, house 4" );
-
+                .checkResult("Name:", "Ivan Ivanov")
+                .checkResult("Email:", "abc@abc.com")
+                .checkResult("Current Address :", "Los Angeles, Big street, house 4")
+                .checkResult("Permananet Address :", "Los Angeles, Big street, house 4");
 
 
     }

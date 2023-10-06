@@ -128,8 +128,18 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkModalForm(String value) {
+    public RegistrationPage checkModalForm() {
         modalForm.should(appear);
+        return this;
+    }
+
+    public RegistrationPage checkModalFormFail() {
+        modalForm.shouldNot(appear);
+        return this;
+    }
+
+    public RegistrationPage checkModalFormTitle(String value) {
+
         modalFormTitle.shouldHave(text(value));
         return this;
     }

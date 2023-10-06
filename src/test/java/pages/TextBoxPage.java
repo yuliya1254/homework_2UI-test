@@ -4,8 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.BeforeAllComponent;
 import pages.components.CheckResultComponent;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
@@ -24,7 +22,6 @@ public class TextBoxPage {
             buttonSubmit = $("#submit");
 
 
-
     //Actions
 
     public TextBoxPage beforeAllCase() {
@@ -38,10 +35,12 @@ public class TextBoxPage {
         executeJavaScript("$('footer').remove()");
         return this;
     }
+
     public TextBoxPage setFullNameInput(String value) {
         fullNameInput.setValue(value);
         return this;
     }
+
     public TextBoxPage setEmailInput(String value) {
         emailInput.setValue(value);
         return this;
@@ -63,7 +62,7 @@ public class TextBoxPage {
     }
 
     public TextBoxPage checkResult(String key, String value) {
-        checkResultComponent.checkOutput(key,value);
+        checkResultComponent.checkOutput(key, value);
         return this;
     }
 

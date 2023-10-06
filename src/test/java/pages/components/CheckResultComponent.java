@@ -10,6 +10,7 @@ public class CheckResultComponent {
 
     SelenideElement output = $("#output");
     SelenideElement formResult = $(".table-responsive");
+
     public void checkResult(String key, String value) {
         formResult.$(byText(key)).parent().shouldHave(text(value));
     }
@@ -17,7 +18,6 @@ public class CheckResultComponent {
     public void checkOutput(String key, String value) {
         output.$(byText(key)).parent().shouldHave(text(value));
     }
-
 
 
 }

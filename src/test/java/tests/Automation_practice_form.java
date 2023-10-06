@@ -26,7 +26,8 @@ public class Automation_practice_form {
                 .setState("NCR")
                 .setCity("Delhi")
                 .clickSubmit()
-                .checkModalForm("Thanks for submitting the form")
+                .checkModalForm()
+                .checkModalFormTitle("Thanks for submitting the form")
 
 
                 .checkResult("Student Name", "Ivan Ivanov")
@@ -44,7 +45,7 @@ public class Automation_practice_form {
     }
 
 
-@Test
+    @Test
     void fillFormTestMondatory() {
 
         registrationPage.beforeAllCase()
@@ -55,7 +56,8 @@ public class Automation_practice_form {
                 .setUserNumberInput("8988888888")
                 .setDateOfBirt("19", "June", "1994")
                 .clickSubmit()
-                .checkModalForm("Thanks for submitting the form")
+                .checkModalForm()
+                .checkModalFormTitle("Thanks for submitting the form")
 
 
                 .checkResult("Student Name", "Ivan Ivanov")
@@ -76,13 +78,7 @@ public class Automation_practice_form {
                 .setUserNumberInput("8988888888")
                 .setDateOfBirt("19", "June", "1994")
                 .clickSubmit()
-                .checkModalForm("Thanks for submitting the form")
-
-
-                .checkResult("Student Name", "Ivan Ivanov")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "8988888888")
-                .checkResult("Date of Birth", "19 June,1994");
+                .checkModalFormFail();
 
 
     }
