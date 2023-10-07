@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
 
-public class Automation_practice_form {
+public class AutomationPracticeForm extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void fillFormTest() {
 
-        registrationPage.beforeAllCase()
-                .openPage()
+        registrationPage.openPage()
+                .deleteBanner()
                 .setFirstNameInput("Ivan")
                 .setLastNameInput("Ivanov")
                 .setUserEmailInput("Ivanov@gmail.ru")
@@ -48,8 +48,9 @@ public class Automation_practice_form {
     @Test
     void fillFormTestMondatory() {
 
-        registrationPage.beforeAllCase()
+        registrationPage
                 .openPage()
+                .deleteBanner()
                 .setFirstNameInput("Ivan")
                 .setLastNameInput("Ivanov")
                 .setGenderWrapperInput("Male")
@@ -71,8 +72,9 @@ public class Automation_practice_form {
     @Test
     void fillFormTestFaled() {
 
-        registrationPage.beforeAllCase()
+        registrationPage
                 .openPage()
+                .deleteBanner()
                 .setLastNameInput("Ivanov")
                 .setGenderWrapperInput("Male")
                 .setUserNumberInput("8988888888")
