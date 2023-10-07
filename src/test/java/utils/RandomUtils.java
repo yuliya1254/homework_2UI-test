@@ -1,5 +1,6 @@
 package utils;
 import java.security.SecureRandom;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.apache.commons.lang3.StringUtils.length;
@@ -31,13 +32,6 @@ public class RandomUtils {
     }
 
 
-    public static String getRandomEmail() {
-        return getRandomString(10) + "@qa.guru";
-    }
-
-//    public static String getRandomAddress() {
-//        return getRandomString(10) + " " + getRandomString(10) + " " + getRandomString(10);
-//    }
 
     public static int getRandomInt(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
@@ -52,10 +46,6 @@ public class RandomUtils {
     }
 
 
-//    public static String getRandomPhone() {
-//        return String.format("+%s (%s) %s - %s - %s", getRandomInt(1, 9), getRandomInt(111, 999),
-//                getRandomInt(111, 999), getRandomInt(11, 99), getRandomInt(11, 99));
-//    }
 
     public static String getRandomGender() {
         String[] genders = {"Male", "Female", "Other"};
@@ -64,7 +54,7 @@ public class RandomUtils {
     }
 
     public static String getRandomSubject() {
-        String[] subject = {"Moths", "Chemistry", "Hindi"};
+        String[] subject = {"Maths", "Chemistry", "Hindi"};
         return getRandomItemFromArray(subject);
     }
 
@@ -74,9 +64,44 @@ public class RandomUtils {
         return getRandomItemFromArray(month);
     }
 
+
+
     public static String getRandomHobbies() {
         String[] hobbies = {"Sports", "Reading", "Music"};
         return getRandomItemFromArray(hobbies);
+    }
+
+    public static String state;
+
+    public static String getRandomState() {
+        String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
+         state = getRandomItemFromArray(states);
+        return state;
+    }
+
+
+
+
+    public static String getRandomCity() {
+        String city = null;
+        if (Objects.equals(state, "NCR")) {
+            String[] cities = {"Delhi", "Gurgaon", "Noida"};
+            city = getRandomItemFromArray(cities);
+        }
+        if (Objects.equals(state, "Uttar Pradesh")) {
+            String[] cities = {"Agra", "Lucknow", "Merrut"};
+            city = getRandomItemFromArray(cities);
+        }
+        if (Objects.equals(state, "Haryana")) {
+            String[] cities = {"Karnal", "Panipat"};
+            city = getRandomItemFromArray(cities);
+        }
+        if (Objects.equals(state, "Rajasthan")) {
+            String[] cities = {"Jaipur", "Jaiselmer"};
+            city = getRandomItemFromArray(cities);
+        }
+
+        return city;
     }
 
     public static String getRandomItemFromArray(String[] array) {
