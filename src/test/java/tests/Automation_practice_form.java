@@ -13,16 +13,21 @@ public class Automation_practice_form {
     RegistrationPage registrationPage = new RegistrationPage();
 
     Faker faker = new Faker(new Locale("en-GB"));
-
     String firstName = faker.name().firstName();
     String lastName = faker.name().lastName();
-    String userEmail = getRandomEmail();
+    String userEmail = faker.internet().emailAddress();
     String gender = getRandomGender();
     String userNumber = getRandomNumbers(11);
-    String day = getRandomDay(10,28);
+    String day = getRandomDay(10, 28);
     String month = getRandomMonth();
+    String year = String.valueOf(getRandomInt(1900, 2100));
+    String subject = getRandomSubject();
+    String hobbies = getRandomHobbies();
+    String picture = "test.jpg";
+    String address = faker.address().fullAddress();
 
-    String year = String.valueOf(getRandomInt(1900,2100));
+
+
 
 
     @Test
@@ -36,10 +41,10 @@ public class Automation_practice_form {
                 .setGenderWrapperInput(gender)
                 .setUserNumberInput(userNumber)
                 .setDateOfBirt(day, month, year)
-                .setSubjectsInput("maths")
-                .setHobbies("Sports")
-                .setUploadPicture("test.jpg")
-                .setCurrentAddress("my Adress")
+                .setSubjectsInput(subject)
+                .setHobbies(hobbies)
+                .setUploadPicture(picture)
+                .setCurrentAddress(address)
                 .setState("NCR")
                 .setCity("Delhi")
                 .clickSubmit()

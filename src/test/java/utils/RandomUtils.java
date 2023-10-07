@@ -63,11 +63,20 @@ public class RandomUtils {
         return getRandomItemFromArray(genders);
     }
 
-    public static String getRandomMonth() {
-        String[] genders = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
-                "October","November","December"};
+    public static String getRandomSubject() {
+        String[] subject = {"Moths", "Chemistry", "Hindi"};
+        return getRandomItemFromArray(subject);
+    }
 
-        return getRandomItemFromArray(genders);
+    public static String getRandomMonth() {
+        String[]  month = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
+                "October","November","December"};
+        return getRandomItemFromArray(month);
+    }
+
+    public static String getRandomHobbies() {
+        String[] hobbies = {"Sports", "Reading", "Music"};
+        return getRandomItemFromArray(hobbies);
     }
 
     public static String getRandomItemFromArray(String[] array) {
