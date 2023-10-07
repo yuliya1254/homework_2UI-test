@@ -1,14 +1,13 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.BeforeAllComponent;
 import pages.components.CheckResultComponent;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class TextBoxPage {
+public class TextBoxPage extends TestBase {
 
-    BeforeAllComponent beforeAll = new BeforeAllComponent();
     CheckResultComponent checkResultComponent = new CheckResultComponent();
 
 
@@ -24,10 +23,6 @@ public class TextBoxPage {
 
     //Actions
 
-    public TextBoxPage beforeAllCase() {
-        beforeAll.beforeAllCase();
-        return this;
-    }
 
     public TextBoxPage openPage() {
         open("/text-box");

@@ -1,20 +1,19 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.BeforeAllComponent;
 import pages.components.CalendarComponent;
 import pages.components.CheckResultComponent;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationPage {
+public class RegistrationPage  {
 
 
     CalendarComponent calendar = new CalendarComponent();
-    BeforeAllComponent beforeAll = new BeforeAllComponent();
 
     CheckResultComponent checkResultComponent = new CheckResultComponent();
 
@@ -41,14 +40,15 @@ public class RegistrationPage {
     //Actions
 
 
-    public RegistrationPage beforeAllCase() {
-        beforeAll.beforeAllCase();
+
+
+    public RegistrationPage openPage() {
+        open("/automation-practice-form");
 
         return this;
     }
 
-    public RegistrationPage openPage() {
-        open("/automation-practice-form");
+    public RegistrationPage deleteBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 

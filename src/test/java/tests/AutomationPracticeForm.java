@@ -9,7 +9,8 @@ import java.util.Locale;
 import static utils.RandomUtils.*;
 
 
-public class Automation_practice_form {
+public class AutomationPracticeForm extends TestBase {
+
     RegistrationPage registrationPage = new RegistrationPage();
 
     Faker faker = new Faker(new Locale("en-GB"));
@@ -33,8 +34,9 @@ public class Automation_practice_form {
     @Test
     void fillFormTest() {
 
-        registrationPage.beforeAllCase()
+        registrationPage
                 .openPage()
+                .deleteBanner()
                 .setFirstNameInput(firstName)
                 .setLastNameInput(lastName)
                 .setUserEmailInput(userEmail)
@@ -67,43 +69,45 @@ public class Automation_practice_form {
     }
 
 
-//    @Test
-//    void fillFormTestMondatory() {
-//
-//        registrationPage.beforeAllCase()
-//                .openPage()
-//                .setFirstNameInput(firstName)
-//                .setLastNameInput(lastName)
-//                .setGenderWrapperInput(gender)
-//                .setUserNumberInput("8988888888")
-//                .setDateOfBirt("19", "June", "1994")
-//                .clickSubmit()
-//                .checkModalForm()
-//                .checkModalFormTitle("Thanks for submitting the form")
-//
-//
-//                .checkResult("Student Name", "Ivan Ivanov")
-//                .checkResult("Gender", "Male")
-//                .checkResult("Mobile", "8988888888")
-//                .checkResult("Date of Birth", "19 June,1994");
-//
-//
-//    }
-//
-//    @Test
-//    void fillFormTestFaled() {
-//
-//        registrationPage.beforeAllCase()
-//                .openPage()
-//                .setLastNameInput(firstName)
-//                .setGenderWrapperInput("Male")
-//                .setUserNumberInput("8988888888")
-//                .setDateOfBirt("19", "June", "1994")
-//                .clickSubmit()
-//                .checkModalFormFail();
-//
-//
-//    }
+    @Test
+    void fillFormTestMondatory() {
+
+        registrationPage
+                .openPage()
+                .deleteBanner()
+                .setFirstNameInput("Ivan")
+                .setLastNameInput("Ivanov")
+                .setGenderWrapperInput("Male")
+                .setUserNumberInput("8988888888")
+                .setDateOfBirt("19", "June", "1994")
+                .clickSubmit()
+                .checkModalForm()
+                .checkModalFormTitle("Thanks for submitting the form")
+
+
+                .checkResult("Student Name", "Ivan Ivanov")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "8988888888")
+                .checkResult("Date of Birth", "19 June,1994");
+
+
+    }
+
+    @Test
+    void fillFormTestFaled() {
+
+        registrationPage
+                .openPage()
+                .deleteBanner()
+                .setLastNameInput("Ivanov")
+                .setGenderWrapperInput("Male")
+                .setUserNumberInput("8988888888")
+                .setDateOfBirt("19", "June", "1994")
+                .clickSubmit()
+                .checkModalFormFail();
+
+
+    }
 }
 
 

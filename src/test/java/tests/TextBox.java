@@ -3,14 +3,13 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.TextBoxPage;
 
-public class TextBox {
+public class TextBox extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
     void fillFormTextBox() {
-        textBoxPage.beforeAllCase()
-                .openPage()
+        textBoxPage.openPage()
                 .setFullNameInput("Ivan Ivanov")
                 .setEmailInput("abc@abc.com")
                 .setCurrentAddressInput("Los Angeles, Big street, house 4")
