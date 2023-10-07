@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
 
+
     CalendarComponent calendar = new CalendarComponent();
     BeforeAllComponent beforeAll = new BeforeAllComponent();
 
