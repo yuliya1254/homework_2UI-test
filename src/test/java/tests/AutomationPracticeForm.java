@@ -1,20 +1,13 @@
 package tests;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-import utils.RandomUtils;
-
-import java.util.Locale;
-
-import static utils.RandomUtils.*;
 
 
 public class AutomationPracticeForm extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     TestData testData = new TestData();
-
 
 
     @Test
@@ -44,7 +37,7 @@ public class AutomationPracticeForm extends TestBase {
                 .checkResult("Student Email", testData.userEmail)
                 .checkResult("Gender", testData.gender)
                 .checkResult("Mobile", testData.userNumber)
-                .checkResult("Date of Birth", testData.day +" "+ testData.month + "," +testData.year)
+                .checkResult("Date of Birth", testData.day + " " + testData.month + "," + testData.year)
                 .checkResult("Subjects", testData.subject)
                 .checkResult("Hobbies", testData.hobbies)
                 .checkResult("Picture", testData.picture)
@@ -55,45 +48,44 @@ public class AutomationPracticeForm extends TestBase {
     }
 
 
-//    @Test
-//    void fillFormTestMondatory() {
-//
-//        registrationPage
-//                .openPage()
-//                .deleteBanner()
-//                .setFirstNameInput("Ivan")
-//                .setLastNameInput("Ivanov")
-//                .setGenderWrapperInput("Male")
-//                .setUserNumberInput("8988888888")
-//                .setDateOfBirt("19", "June", "1994")
-//                .clickSubmit()
-//                .checkModalForm()
-//                .checkModalFormTitle("Thanks for submitting the form")
-//
-//
-//                .checkResult("Student Name", "Ivan Ivanov")
-//                .checkResult("Gender", "Male")
-//                .checkResult("Mobile", "8988888888")
-//                .checkResult("Date of Birth", "19 June,1994");
-//
-//
-//    }
-//
-//    @Test
-//    void fillFormTestFaled() {
-//
-//        registrationPage
-//                .openPage()
-//                .deleteBanner()
-//                .setLastNameInput("Ivanov")
-//                .setGenderWrapperInput("Male")
-//                .setUserNumberInput("8988888888")
-//                .setDateOfBirt("19", "June", "1994")
-//                .clickSubmit()
-//                .checkModalFormFail();
-//
-//
-//    }
+    @Test
+    void fillFormTestMondatory() {
+
+        registrationPage
+                .openPage()
+                .deleteBanner()
+                .setFirstNameInput(testData.firstName)
+                .setLastNameInput(testData.lastName)
+                .setGenderWrapperInput(testData.gender)
+                .setUserNumberInput(testData.userNumber)
+                .setDateOfBirt(testData.day, testData.month, testData.year)
+                .clickSubmit()
+                .checkModalForm()
+                .checkModalFormTitle(testData.textForCheck)
+
+
+                .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.userNumber)
+                .checkResult("Date of Birth", testData.day + " " + testData.month + "," + testData.year);
+
+
+    }
+
+    @Test
+    void fillFormTestFaled() {
+
+        registrationPage
+                .openPage()
+                .deleteBanner()
+                .setFirstNameInput(testData.firstName)
+                .setLastNameInput(testData.lastName)
+                .setGenderWrapperInput(testData.gender)
+                .setUserNumberInput(testData.userNumber)
+                .clickSubmit();
+
+
+    }
 }
 
 

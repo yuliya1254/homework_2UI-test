@@ -1,4 +1,5 @@
 package utils;
+
 import java.security.SecureRandom;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
@@ -8,6 +9,7 @@ import static org.apache.commons.lang3.StringUtils.length;
 public class RandomUtils {
 
 
+    public static String state;
 
     public static String getRandomString(int len) {
 //        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -31,21 +33,17 @@ public class RandomUtils {
         return sb.toString();
     }
 
-
-
     public static int getRandomInt(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 
     public static String getRandomDay(int min, int max) {
-        String  day = String.valueOf(ThreadLocalRandom.current().nextInt(min, max + 1));
-        if (length(day)<2){
-            day =  "0" + day;
+        String day = String.valueOf(ThreadLocalRandom.current().nextInt(min, max + 1));
+        if (length(day) < 2) {
+            day = "0" + day;
         }
         return day;
     }
-
-
 
     public static String getRandomGender() {
         String[] genders = {"Male", "Female", "Other"};
@@ -59,27 +57,21 @@ public class RandomUtils {
     }
 
     public static String getRandomMonth() {
-        String[]  month = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
-                "October","November","December"};
+        String[] month = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
+                "October", "November", "December"};
         return getRandomItemFromArray(month);
     }
-
-
 
     public static String getRandomHobbies() {
         String[] hobbies = {"Sports", "Reading", "Music"};
         return getRandomItemFromArray(hobbies);
     }
 
-    public static String state;
-
     public static String getRandomState() {
         String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-         state = getRandomItemFromArray(states);
+        state = getRandomItemFromArray(states);
         return state;
     }
-
-
 
 
     public static String getRandomCity() {
