@@ -28,16 +28,6 @@ public class RandomUtils {
         return sb.toString();
     }
 
-    public static String getRandomNumbers(int len) {
-
-        String AB = "0123456789";
-        SecureRandom rnd = new SecureRandom();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < len; i++)
-            sb.append(AB.charAt(rnd.nextInt(AB.length())));
-
-        return sb.toString();
-    }
 
     public static int getRandomInt(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
