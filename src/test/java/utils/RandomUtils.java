@@ -1,6 +1,10 @@
 package utils;
 
+import com.github.javafaker.Faker;
+import tests.StudentRegistrationTestData;
+
 import java.security.SecureRandom;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -8,8 +12,10 @@ import static org.apache.commons.lang3.StringUtils.length;
 
 public class RandomUtils {
 
+    Faker faker = new Faker(new Locale("en-GB"));
+    StudentRegistrationTestData studentRegistrationTestData= new StudentRegistrationTestData();
 
-    public static String state;
+
 
     public static String getRandomString(int len) {
 //        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -45,15 +51,12 @@ public class RandomUtils {
         return day;
     }
 
-    public static String getRandomGender() {
-        String[] genders = {"Male", "Female", "Other"};
-
-        return getRandomItemFromArray(genders);
+    public  String getRandomGender() {
+        return faker.options().option(studentRegistrationTestData.genders);
     }
 
-    public static String getRandomSubject() {
-        String[] subject = {"Maths", "Chemistry", "Hindi"};
-        return getRandomItemFromArray(subject);
+    public  String getRandomSubject() {
+        return faker.options().option(studentRegistrationTestData.subjects);
     }
 
     public static String getRandomMonth() {
@@ -62,40 +65,32 @@ public class RandomUtils {
         return getRandomItemFromArray(month);
     }
 
-    public static String getRandomHobbies() {
-        String[] hobbies = {"Sports", "Reading", "Music"};
-        return getRandomItemFromArray(hobbies);
+    public  String getRandomHobbies() {
+        return faker.options().option(studentRegistrationTestData.hobbies);
     }
 
-    public static String getRandomState() {
-        String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-        state = getRandomItemFromArray(states);
-        return state;
+    public String getRandomState() {
+        return faker.options().option(studentRegistrationTestData.states);
     }
 
 
-    public static String getRandomCity() {
+    public String getRandomCity(String state) {
         String city = null;
-        if (Objects.equals(state, "NCR")) {
-            String[] cities = {"Delhi", "Gurgaon", "Noida"};
-            city = getRandomItemFromArray(cities);
+        if (state == "NCR" ) {
+            city = faker.options().option(studentRegistrationTestData.ncrCities);
         }
-        if (Objects.equals(state, "Uttar Pradesh")) {
-            String[] cities = {"Agra", "Lucknow", "Merrut"};
-            city = getRandomItemFromArray(cities);
+        if (state == "Uttar Pradesh" ) {
+            city = faker.options().option(studentRegistrationTestData.uttarPradeshCities);
         }
-        if (Objects.equals(state, "Haryana")) {
-            String[] cities = {"Karnal", "Panipat"};
-            city = getRandomItemFromArray(cities);
+        if (state == "Haryana" ) {
+            city =  faker.options().option(studentRegistrationTestData.haryanaCities);
         }
-        if (Objects.equals(state, "Rajasthan")) {
-            String[] cities = {"Jaipur", "Jaiselmer"};
-            city = getRandomItemFromArray(cities);
+        if (state == "Rajasthan" ) {
+            city = faker.options().option(studentRegistrationTestData.rajasthanCities);
         }
 
         return city;
     }
-
     public static String getRandomItemFromArray(String[] array) {
         int index = getRandomInt(0, array.length - 1);
 
