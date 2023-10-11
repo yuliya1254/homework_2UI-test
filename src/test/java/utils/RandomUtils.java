@@ -49,10 +49,9 @@ public class RandomUtils {
         return faker.options().option(studentRegistrationTestData.subjects);
     }
 
-    public static String getRandomMonth() {
-        String[] month = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
-                "October", "November", "December"};
-        return getRandomItemFromArray(month);
+    public  String getRandomMonth() {
+        return faker.options().option(studentRegistrationTestData.month);
+
     }
 
     public  String getRandomHobbies() {

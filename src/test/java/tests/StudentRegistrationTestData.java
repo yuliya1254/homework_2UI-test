@@ -10,6 +10,9 @@ public class StudentRegistrationTestData {
             ncrCities = {"Delhi", "Gurgaon", "Noida"},
             uttarPradeshCities = {"Agra", "Lucknow", "Merrut"},
             haryanaCities = {"Karnal", "Panipat"},
+            month = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
+                    "October", "November", "December"},
             rajasthanCities = {"Jaipur", "Jaiselmer"};
+
 }
 

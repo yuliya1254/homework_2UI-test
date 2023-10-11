@@ -18,7 +18,7 @@ public class TestData {
     public String gender = randomUtils.getRandomGender();
     public String userNumber = faker.phoneNumber().subscriberNumber(10);
     public String day = String.valueOf(faker.number().numberBetween(10, 28));
-    public String month = getRandomMonth();
+    public String month = randomUtils.getRandomMonth();
     public String year = String.valueOf(faker.number().numberBetween(1900, 2100));
     public String subject = randomUtils.getRandomSubject();
     public String hobbies = randomUtils.getRandomHobbies();
