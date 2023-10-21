@@ -1,5 +1,8 @@
 package tests;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.TextBoxPage;
 
@@ -7,7 +10,7 @@ public class TextBox extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
 
-    @Test
+ @Test
     void fillFormTextBox() {
         textBoxPage.openPage()
                 .setFullNameInput("Ivan Ivanov")
