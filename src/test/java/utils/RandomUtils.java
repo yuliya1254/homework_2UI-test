@@ -65,16 +65,16 @@ public class RandomUtils {
 
     public String getRandomCity(String state) {
         String city = null;
-        if (state == "NCR" ) {
+        if (state.equals("NCR" ) ) {
             city = faker.options().option(studentRegistrationTestData.ncrCities);
         }
-        if (state == "Uttar Pradesh" ) {
+        if (state.equals("Uttar Pradesh")) {
             city = faker.options().option(studentRegistrationTestData.uttarPradeshCities);
         }
-        if (state == "Haryana" ) {
+        if (state.equals("Haryana")  ) {
             city =  faker.options().option(studentRegistrationTestData.haryanaCities);
         }
-        if (state == "Rajasthan" ) {
+        if (state.equals("Rajasthan")  ) {
             city = faker.options().option(studentRegistrationTestData.rajasthanCities);
         }
 
