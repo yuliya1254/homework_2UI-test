@@ -37,6 +37,7 @@ dependencies {
 }
 
 tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -47,7 +48,7 @@ tasks.withType(Test) {
     }
 }
 
-task simple_test(type: Test) {
+task registration (type: Test) {
     useJUnitPlatform {
         includeTags("registratin")
     }

@@ -3,14 +3,13 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.CheckResultComponent;
-import tests.TestBase;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationPage  {
+public class RegistrationPage {
 
 
     CalendarComponent calendar = new CalendarComponent();
@@ -38,8 +37,6 @@ public class RegistrationPage  {
 
 
     //Actions
-
-
 
 
     public RegistrationPage openPage() {

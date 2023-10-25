@@ -23,13 +23,13 @@ public class AutomationPracticeForm extends TestBase {
     @Link(value = "automation-practice-form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Регистрация клиента")
     void fillFormTest() {
-        step ("Открыть форму https://demoqa.com/automation-practice-form",() ->{
-                registrationPage
-                        .openPage()
-                        .deleteBanner();
+        step("Открыть форму https://demoqa.com/automation-practice-form", () -> {
+            registrationPage
+                    .openPage()
+                    .deleteBanner();
         });
 
-        step ("Заполнить поля на форме",() ->{
+        step("Заполнить поля на форме", () -> {
             registrationPage
                     .setFirstNameInput(testData.firstName)
                     .setLastNameInput(testData.lastName)
@@ -45,7 +45,7 @@ public class AutomationPracticeForm extends TestBase {
                     .setCity(testData.city);
         });
 
-        step ("Нажать кнопку Submit ",() ->{
+        step("Нажать кнопку Submit ", () -> {
             registrationPage
                     .clickSubmit()
                     .checkModalForm()
@@ -54,7 +54,7 @@ public class AutomationPracticeForm extends TestBase {
 
         });
 
-        step ("Проверить результат заполнения формы ",() ->{
+        step("Проверить результат заполнения формы ", () -> {
             registrationPage
                     .checkResult("Student Name", testData.firstName + " " + testData.lastName)
                     .checkResult("Student Email", testData.userEmail)
@@ -70,7 +70,6 @@ public class AutomationPracticeForm extends TestBase {
         });
 
 
-
     }
 
 
@@ -83,13 +82,13 @@ public class AutomationPracticeForm extends TestBase {
     @DisplayName("Регистрация клиента. Заполнены только обязательные поля")
     void fillFormTestMondatory() {
 
-        step ("Открыть форму https://demoqa.com/automation-practice-form",() ->{
+        step("Открыть форму https://demoqa.com/automation-practice-form", () -> {
             registrationPage
                     .openPage()
                     .deleteBanner();
         });
 
-        step ("Заполнить обязельные поля на форме",() ->{
+        step("Заполнить обязельные поля на форме", () -> {
             registrationPage
                     .setFirstNameInput(testData.firstName)
                     .setLastNameInput(testData.lastName)
@@ -98,7 +97,7 @@ public class AutomationPracticeForm extends TestBase {
                     .setDateOfBirt(testData.day, testData.month, testData.year);
         });
 
-        step ("Нажать кнопку Submit ",() ->{
+        step("Нажать кнопку Submit ", () -> {
             registrationPage
                     .clickSubmit()
                     .checkModalForm()
@@ -106,7 +105,7 @@ public class AutomationPracticeForm extends TestBase {
 
         });
 
-        step ("Проверить результат заполнения формы ",() ->{
+        step("Проверить результат заполнения формы ", () -> {
             registrationPage
                     .checkResult("Student Name", testData.firstName + " " + testData.lastName)
                     .checkResult("Gender", testData.gender)
@@ -127,25 +126,25 @@ public class AutomationPracticeForm extends TestBase {
     @Link(value = "automation-practice-form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Регистрация клиента. Не заполнено обязательное поле")
     void fillFormTestFaled() {
-            step ("Открыть форму https://demoqa.com/automation-practice-form",() ->{
-                registrationPage
-                        .openPage()
-                        .deleteBanner();
-            });
+        step("Открыть форму https://demoqa.com/automation-practice-form", () -> {
+            registrationPage
+                    .openPage()
+                    .deleteBanner();
+        });
 
-            step ("Заполнить не все обязельные поля на форме",() ->{
-                registrationPage
-                        .setLastNameInput(testData.lastName)
-                        .setGenderWrapperInput(testData.gender)
-                        .setUserNumberInput(testData.userNumber);
-            });
+        step("Заполнить не все обязельные поля на форме", () -> {
+            registrationPage
+                    .setLastNameInput(testData.lastName)
+                    .setGenderWrapperInput(testData.gender)
+                    .setUserNumberInput(testData.userNumber);
+        });
 
-            step ("Нажать кнопку Submit ",() ->{
-                registrationPage
-                        .clickSubmit()
-                        .checkModalFormFail();
+        step("Нажать кнопку Submit ", () -> {
+            registrationPage
+                    .clickSubmit()
+                    .checkModalFormFail();
 
-            });
+        });
 
 
     }
