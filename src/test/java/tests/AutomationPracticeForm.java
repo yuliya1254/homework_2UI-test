@@ -103,9 +103,9 @@ public class AutomationPracticeForm extends TestBase {
 
         step ("Нажать кнопку Submit ",() ->{
             registrationPage
-                    .checkModalFormTitle(testData.textForCheck)
                     .clickSubmit()
-                    .checkModalForm();
+                    .checkModalForm()
+                    .checkModalFormTitle(testData.textForCheck);
 
         });
 
