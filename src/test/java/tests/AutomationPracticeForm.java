@@ -31,6 +31,7 @@ public class AutomationPracticeForm extends TestBase {
 
         step ("Заполнить поля на форме",() ->{
             registrationPage
+                    .setFirstNameInput(testData.firstName)
                     .setLastNameInput(testData.lastName)
                     .setUserEmailInput(testData.userEmail)
                     .setGenderWrapperInput(testData.gender)
@@ -46,9 +47,10 @@ public class AutomationPracticeForm extends TestBase {
 
         step ("Нажать кнопку Submit ",() ->{
             registrationPage
-                    .checkModalFormTitle(testData.textForCheck)
                     .clickSubmit()
-                    .checkModalForm();
+                    .checkModalForm()
+                    .checkModalFormTitle(testData.textForCheck);
+
 
         });
 

@@ -48,11 +48,11 @@ public class TestBase {
         closeWebDriver();
     }
 
-    @AfterEach
-    void afterEach() {
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
-
-    }
+//    @AfterEach
+//    void afterEach() {
+//        Selenide.clearBrowserCookies();
+//        Selenide.clearBrowserLocalStorage();
+//
+//    }
 }
 
