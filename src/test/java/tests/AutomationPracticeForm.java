@@ -95,10 +95,7 @@ public class AutomationPracticeForm extends TestBase {
                     .setLastNameInput(testData.lastName)
                     .setGenderWrapperInput(testData.gender)
                     .setUserNumberInput(testData.userNumber)
-                    .setDateOfBirt(testData.day, testData.month, testData.year)
-                    .clickSubmit()
-                    .checkModalForm()
-                    .checkModalFormTitle(testData.textForCheck);
+                    .setDateOfBirt(testData.day, testData.month, testData.year);
         });
 
         step ("Нажать кнопку Submit ",() ->{
