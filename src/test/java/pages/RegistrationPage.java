@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 import pages.components.CalendarComponent;
 import pages.components.CheckResultComponent;
 
@@ -26,7 +27,7 @@ public class RegistrationPage {
             userNumberInput = $("#userNumber"),
             subjectsInput = $("#subjectsInput"),
             hobbies = $("#hobbiesWrapper"),
-            uploadPicture = $("#uploadPicture"),
+            uploadPicture = (SelenideElement) By.cssSelector("input[type=file]"),
             currentAddress = $("#currentAddress"),
             state = $("#state"),
             stateCity = $("#stateCity-wrapper"),
