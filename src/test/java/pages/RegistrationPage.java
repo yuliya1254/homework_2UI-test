@@ -165,7 +165,7 @@ public class RegistrationPage {
     }
 
 
-    @Step("Проверить результат заполнения формы")
+    @Step("Проверить результат заполнения формы {key} : {value}")
     public RegistrationPage checkResult(String key, String value) {
         if (!(browser.equals("firefox") && key.equals("Picture"))) {
             checkResultComponent.checkResult(key, value);
