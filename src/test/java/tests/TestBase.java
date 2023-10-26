@@ -43,13 +43,10 @@ public class TestBase {
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
-        if (!Configuration.browser.equalsIgnoreCase("firefox")){
-            Attach.browserConsoleLogs();
-        }
         Attach.pageSource();
-        Attach.browserConsoleLogs();
         if (!Configuration.browser.equalsIgnoreCase("firefox")){
             Attach.addVideo();
+            Attach.browserConsoleLogs();
         }
         closeWebDriver();
     }
