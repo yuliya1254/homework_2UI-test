@@ -48,7 +48,9 @@ public class TestBase {
         }
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
+        if (!Configuration.browser.equalsIgnoreCase("firefox")){
+            Attach.addVideo();
+        }
         closeWebDriver();
     }
 
