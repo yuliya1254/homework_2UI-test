@@ -19,9 +19,9 @@ public class TestBase {
     public void beforeAllCase() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.browser = System.getProperty("browser", "mozilla");
-        Configuration.browserVersion = System.getProperty("version", "101");
-        //Configuration.holdBrowserOpen = false;
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("version", "100");
+        Configuration.holdBrowserOpen = false;
         Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
         Configuration.timeout = 10000;
         Configuration.remote = System.getProperty("webDriver", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
