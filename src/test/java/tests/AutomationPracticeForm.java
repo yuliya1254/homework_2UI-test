@@ -39,7 +39,7 @@ public class AutomationPracticeForm extends TestBase {
                     .setDateOfBirt(testData.day, testData.month, testData.year)
                     .setSubjectsInput(testData.subject)
                     .setHobbies(testData.hobbies)
-                    .setUploadPicture("test.jpg")
+                    .setUploadPicture(testData.picture)
                     .setCurrentAddress(testData.address)
                     .setState(testData.state)
                     .setCity(testData.city);
