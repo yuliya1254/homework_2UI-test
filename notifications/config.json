@@ -1,0 +1,17 @@
+{
+  "base": {
+    "logo": "",
+    "project": "AutomaticPracticeForm",
+    "environment": "PROD",
+    "comment": "any comment here @iterkin",
+    "reportLink": "https://demoqa.com/automation-practice-form\"",
+    "language": "ru",
+    "allureFolder": "allure-report",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "bot6586880966:AAF-ByJfRWvhjBZoHTtHBx1_R-rk1TlcG_w",
+    "chat": "-1002041726293",
+    "replyTo": ""
+  }
+}
